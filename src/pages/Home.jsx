@@ -17,7 +17,7 @@ function Home() {
   }, []);
 
   return (
-    <main>
+    <>
         <div className="header_section">
             <h1 className="text-left text-[30px] p-[20px] font-bold mb-10">
               Latest News
@@ -35,8 +35,7 @@ function Home() {
             />
           ))}
         </div>
-
-    </main>
+   </>
   );
 }
 
