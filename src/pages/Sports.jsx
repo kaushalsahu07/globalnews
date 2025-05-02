@@ -1,12 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import "../index.css";
+import Box from "../components/Box";
+import { baseUrl } from "../api/newapi";
 
 function Sports() {
-    return(
-        <div>
-            <h1>Sports</h1>
-            <p>Welcome to the Sports page!</p>
+  const [news, setNews] = useState([]);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      const data = await baseUrl(`everything?q=Sports&pageSize=5`);
+      if (data && data.articles) {
+        setNews(data.articles);
+      }
+    };
+    fetchNews();
+  }, []);
+
+  return (
+    <>
+        <div className="header_section">
+            <h1 className="text-left text-[30px] p-[20px] font-bold mb-10">
+              Sports News
+            </h1>
         </div>
-    )
+        <div className="flex flex-wrap gap-4">
+          {news.map((article) => (
+            <Box
+              key={article.url}
+              url={article.url}
+              image={article.urlToImage}
+              date={article.publishedAt}
+              CardTitle={article.title.slice(0, 80) + "..."}
+              CardDescription={article.description ? article.description.slice(0, 250) + "..." : "No description available"}
+            />
+          ))}
+        </div>
+
+    </>
+  );
 }
 
 export default Sports;
