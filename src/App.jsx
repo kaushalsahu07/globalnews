@@ -3,6 +3,7 @@ import './index.css'
 import Business from './pages/Business'
 import Home from './pages/Home'
 import Sports from './pages/Sports'
+import Technology from './pages/Technology'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
      <Home />
      <Business />
      <Sports />
+     <Technology />
      </main>
     </>
    )
