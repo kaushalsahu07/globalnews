@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import "../index.css";
+// Api And Components
 import Box from "../components/Box";
 import { baseUrl } from "../api/newapi";
 
-function Technology() {
+function Technology({ size }) {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
     const fetchNews = async () => {
-      const data = await baseUrl(`everything?q=Technology&pageSize=6`);
+      const data = await baseUrl(`everything?q=Technology&pageSize=${size}`);
       if (data && data.articles) {
         setNews(data.articles);
       }
@@ -41,4 +43,12 @@ function Technology() {
   );
 }
 
+// PropTypes for the component
+Technology.propTypes = {
+  size: PropTypes.string,
+};
+
+Technology.defaultProps = {
+  size: "50",
+};
 export default Technology;
