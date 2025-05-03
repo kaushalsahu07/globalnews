@@ -24,7 +24,7 @@ function Box({ image, date, author, CardTitle, CardDescription, url }) {
                         <div>
                             <div className="flex gap-3 items-center mb-2">
                                 <span className="px-3 py-1 text-xs font-medium text-gray-600 rounded-full">
-                                    {author ? author : "Unknown"} 
+                                    {author ? author.slice(0, 30) + "..." : "Unknown"}
                                 </span>
                                 <span className='text-gray-600'> || </span>
                                 <span className="px-3 py-1 text-xs font-medium text-gray-600 rounded-full">
