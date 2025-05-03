@@ -8,7 +8,7 @@ function Home() {
 
   useEffect(() => {
     const fetchNews = async () => {
-      const data = await baseUrl(`top-headlines?country=us&pageSize=5`);
+      const data = await baseUrl(`top-headlines?country=us&pageSize=6`);
       if (data && data.articles) {
         setNews(data.articles);
       }
@@ -28,6 +28,7 @@ function Home() {
             <Box
               key={article.url}
               url={article.url}
+              author={article.author}
               image={article.urlToImage}
               date={article.publishedAt}
               CardTitle={article.title.slice(0, 80) + "..."}

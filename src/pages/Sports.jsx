@@ -8,7 +8,7 @@ function Sports() {
 
   useEffect(() => {
     const fetchNews = async () => {
-      const data = await baseUrl(`everything?q=Sports&pageSize=5`);
+      const data = await baseUrl(`everything?q=Sports&pageSize=6`);
       if (data && data.articles) {
         setNews(data.articles);
       }
@@ -28,6 +28,7 @@ function Sports() {
             <Box
               key={article.url}
               url={article.url}
+              author={article.author}
               image={article.urlToImage}
               date={article.publishedAt}
               CardTitle={article.title.slice(0, 80) + "..."}

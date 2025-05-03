@@ -24,6 +24,10 @@ main{
   /* border: 1px solid var(--black-color); */
 }
 
+nav{
+  padding: 30px 30px;
+}
+
 .button{
   background-color: var(--primary-color);
   color: #fff;
@@ -42,4 +46,17 @@ main{
 .header_section{
   margin-top: 40px;
   margin-bottom: 20px;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 10s linear infinite;
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import "../index.css";
 import notfound from '../assets/404.jpg';
 
-function Box({ image, date, CardTitle, CardDescription, url }) {
+function Box({ image, date, author, CardTitle, CardDescription, url }) {
     const formatDate = (dateString) => {
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         return new Date(dateString).toLocaleDateString('en-US', options);
@@ -22,8 +22,12 @@ function Box({ image, date, CardTitle, CardDescription, url }) {
 
                     <div className='flex flex-col justify-center flex-grow p-4'>
                         <div>
-                            <div className="flex justify-between items-center mb-2">
-                                <span className="px-3 py-1 text-xs font-medium text-gray-600 bg-gray-100 rounded-full">
+                            <div className="flex gap-3 items-center mb-2">
+                                <span className="px-3 py-1 text-xs font-medium text-gray-600 rounded-full">
+                                    {author ? author : "Unknown"} 
+                                </span>
+                                <span className='text-gray-600'> || </span>
+                                <span className="px-3 py-1 text-xs font-medium text-gray-600 rounded-full">
                                     {formatDate(date)}
                                 </span>
                             </div>
