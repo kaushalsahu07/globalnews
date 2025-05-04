@@ -5,7 +5,9 @@ const API_KEYS = [
   '20fce435f1cd485cb4c0c74451b90fa3',
   '3cdb653021094a92a771c28367ee75b1',
   'd48c3ac4d3b54d5998d31107cac33bee',
-  '5be256e8479749b3aa25db399f1fa026'
+  '5be256e8479749b3aa25db399f1fa026',
+  '9ac9cacba66c4d5480146dd97399839f',
+  '86407836d3bd4ee3aa5b3fc9f793fd14'
 ];
 
 let currentKeyIndex = 0;
