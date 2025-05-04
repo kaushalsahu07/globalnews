@@ -6,14 +6,19 @@ const API_KEYS = [
   '3cdb653021094a92a771c28367ee75b1',
   'd48c3ac4d3b54d5998d31107cac33bee',
   '5be256e8479749b3aa25db399f1fa026'
-
 ];
 
 let currentKeyIndex = 0;
+let triedKeys = new Set(); // Keep track of keys we've tried
 
 const getNextApiKey = () => {
   currentKeyIndex = (currentKeyIndex + 1) % API_KEYS.length;
   return API_KEYS[currentKeyIndex];
+};
+
+const resetApiKeyTracking = () => {
+  triedKeys.clear();
+  currentKeyIndex = 0;
 };
 
 const newsApi = axios.create({
@@ -26,13 +31,17 @@ const newsApi = axios.create({
 export const baseUrl = async (topic) => {
   const makeRequest = async (apiKey) => {
     try {
+      triedKeys.add(apiKey); // Mark this key as tried
       const response = await newsApi.get(`${topic}&apiKey=${apiKey}`);
+      // If successful, reset our tracking
+      resetApiKeyTracking();
       return response.data;
     } catch (error) {
       if (error.response && error.response.status === 429) {
-        // If we've tried all API keys, throw an error
-        if (currentKeyIndex === API_KEYS.length - 1) {
-          throw new Error('All API keys have reached their rate limit. Please try again later.');
+        // Check if we've tried all available keys
+        if (triedKeys.size >= API_KEYS.length) {
+          resetApiKeyTracking();
+          throw new Error('All API keys are currently rate limited. Please try again in a moment.');
         }
         // Try with next API key
         const nextKey = getNextApiKey();
@@ -46,7 +55,11 @@ export const baseUrl = async (topic) => {
   try {
     return await makeRequest(API_KEYS[currentKeyIndex]);
   } catch (error) {
-    console.error('Error fetching news:', error.message);
+    if (error.response && error.response.status === 429) {
+      console.error('Rate limit error:', error.message);
+    } else {
+      console.error('Error fetching news:', error.message);
+    }
     throw error;
   }
 };
