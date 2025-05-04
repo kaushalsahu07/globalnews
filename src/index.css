@@ -75,13 +75,25 @@ input{
   width: 400px;
   max-width: 400px;
 }
-
+.footer{
+  margin-top: 40px;
+  padding: 20px 0;
+  text-align: center;
+}
+.nav_items{
+  margin-top: 5px;
+}
 @media (max-width: 768px) {
   main{
-    max-width: 100%;
+    max-width: 95%;
+  }
+  .SearchResults{
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
   }
   input{
     width: 100%;
-    max-width: 100%;
+    max-width: 95%;
   }
 }

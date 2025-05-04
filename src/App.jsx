@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import './index.css'
+import Footer from './components/Footer'
 
 // Lazy load all pages
 const Home = lazy(() => import('./pages/Home'))
@@ -32,6 +33,7 @@ function App() {
           <Route path="/search" element={<Search />} />
         </Routes>
       </Suspense>
+      <Footer />
     </Router>
   )
 }

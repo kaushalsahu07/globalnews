@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 const API_KEYS = [
-  '33a0f5e2e08d4628927703b1e36ec992', //nodac97034@idoidraw.com
+  '33a0f5e2e08d4628927703b1e36ec992', 
   '20fce435f1cd485cb4c0c74451b90fa3',
-  '3cdb653021094a92a771c28367ee75b1', //rinok27070@harinv.com
+  '3cdb653021094a92a771c28367ee75b1',
   'd48c3ac4d3b54d5998d31107cac33bee',
   '5be256e8479749b3aa25db399f1fa026'
 

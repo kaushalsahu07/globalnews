@@ -113,6 +113,7 @@ function Search() {
           {/* Results */}
           {!isLoading && news.length > 0 && (
             <>
+             <div className="SearchResults">
               <p className="search mb-8 text-gray-600 text-center">
                 Found {news.length} results for "{searchTerm}"
               </p>
@@ -133,6 +134,7 @@ function Search() {
                   />
                 ))}
               </div>
+            </div>
             </>
           )}
 

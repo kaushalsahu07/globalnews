@@ -19,21 +19,21 @@ const Navbar = () => {
     { name: "Business", path: "/business" },
     { name: "Sports", path: "/sports" },
     { name: "Technology", path: "/technology" },
-    { name: "Entertainment", path: "/entertainment" }
+    { name: "Entertainment", path: "/entertainment" },
   ];
-  
+
   const mainMenuItems = [
     { name: "Home", path: "/" },
-    { name: "Search", path: "/search" }
+    { name: "Search", path: "/search" },
   ];
 
   return (
     <nav className="bg-[var(--black-color)] w-full h-20 flex items-center justify-between px-6 relative">
-      <Link to="/" className="text-[var(--highlight-color)] font-bold text-[20px] hover:scale-110 transition-transform duration-300">
-        <FontAwesomeIcon
-          icon={faEarthAmericas}
-          className="animate-spin-slow"
-        />{" "}
+      <Link
+        to="/"
+        className="text-[var(--highlight-color)] font-bold text-[20px] hover:scale-110 transition-transform duration-300"
+      >
+        <FontAwesomeIcon icon={faEarthAmericas} className="animate-spin-slow" />{" "}
         <span className="hover:text-[var(--primary-color)] transition-colors">
           GlobalNews
         </span>
@@ -87,9 +87,9 @@ const Navbar = () => {
               />
             </svg>
           </button>
-          <ul className="absolute left-0 w-[10rem] h-[9rem] bg-[var(--black-color)] border border-gray-700 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-300 z-50 flex flex-col gap-2 py-2">
+          <ul className="absolute left-0 w-[10rem] h-[9.5rem] bg-[var(--black-color)] border border-gray-700 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-300 z-50 flex flex-col gap-2 py-2">
             {dropdownItems.map((item) => (
-              <li key={item.name}>
+              <li className="nav_items" key={item.name}>
                 <Link
                   to={item.path}
                   className="block text-center text-[var(--highlight-color)] hover:text-[var(--primary-color)] transition-colors duration-200 rounded"
@@ -131,7 +131,7 @@ const Navbar = () => {
       {/* Desktop Contact Button */}
       <div className="button hover:scale-110 transition-transform duration-300 hidden md:block">
         <a
-          href="mailto:kaushal.r.sahu@outlook.com?subject=Let's Talk"
+          href="https://github.com/kaushalsahu07"
           className="text-[var(--highlight-color)] font-bold relative overflow-hidden group px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105"
         >
           <span className="relative z-10 group-hover:text-[var(--highlight-color)] transition-colors duration-300">
