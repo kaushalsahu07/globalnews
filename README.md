@@ -15,6 +15,7 @@
 - React
 - Vite
 - JavaScript (ES6+)
+- Tailwind
 - News API
 
 ## 📦 Installation
